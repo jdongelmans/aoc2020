@@ -32,9 +32,7 @@ class Day03
   end
 end
 
-map = File.read('inputs/day03.txt').split("\n").each_with_object([]) do |row, map|
-  map << row.chars
-end
+map = File.read('inputs/day03.txt').split("\n")
 
 puts "Day03::Part1 answer: #{Day03::Part1.run(map)}"
 puts "Day03::Part2 answer: #{Day03::Part2.run(map)}"

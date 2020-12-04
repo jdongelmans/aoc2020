@@ -32,7 +32,7 @@ class Day04
         when 'eyr'
           (2020..2030).include?(data.to_i)
         when 'hgt'
-          height_data = data.match(/(\d+)(cm{1}|in{1})\z/)
+          height_data = data.match(/\A(\d+)(cm|in)\z/)
           return false unless height_data
 
           case height_data[2]
@@ -44,7 +44,7 @@ class Day04
             false
           end
         when 'hcl'
-          data.match(/#+[0-9a-f]{6}\z/)
+          data.match(/\A#[0-9a-f]{6}\z/)
         when 'ecl'
           %w[amb blu brn gry grn hzl oth].include?(data)
         when 'pid'

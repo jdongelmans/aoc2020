@@ -45,11 +45,24 @@ class Day07
   end
 
   class Part2
-    def self.run(rules) end
+    def self.run(rules)
+      tree = Day07.build_tree(rules)
+
+      count_children(tree, 'shiny gold')
+    end
+
+    def self.count_children(tree, colour)
+      total = 0
+      subtree = tree[colour]
+      subtree.each do |colour, count|
+        total += count + (count * count_children(tree, colour))
+      end
+
+      total
+    end
   end
 end
 
 rules = File.readlines('inputs/day07.txt')
-
 puts "Day07::Part1 answer: #{Day07::Part1.run(rules)}"
 puts "Day07::Part2 answer: #{Day07::Part2.run(rules)}"
